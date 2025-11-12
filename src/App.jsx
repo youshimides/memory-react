@@ -1,14 +1,20 @@
 import { useState } from 'react'
 import img1 from"/img/bb2.png"
 import './App.css'
-import Grid from './grid/Grid.jsx'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import MainPage from './MainPage/MainPage.jsx'
+import GamePage from './GamePage/GamePage.jsx'
 
 function App() {
 
   return (
-    <>
-      <Grid />  
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<MainPage/>}/>
+      <Route path="/game" element={<GamePage/>}/>
+      <Route path="*" element={<MainPage/>}/>
+    </Routes>
+    </BrowserRouter>
   )
 }
 

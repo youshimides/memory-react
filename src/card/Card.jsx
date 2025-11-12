@@ -1,21 +1,23 @@
 import './Card.css'
 import React from 'react';
 
-export default function Card(props, count, setCount){
-    const [example, setExample] = React.useState(0);
+export default function Card({ src, alt, count, setCount }) {
     const [isVisible, setIsVisible] = React.useState(false);
-    const handleClick = () =>{
-        setIsVisible(!isVisible)
-        if(isVisible){
-        setCount(count - 1)
-        } else{
-            setCount(count + 1)
+    
+    const handleClick = () => {
+        setIsVisible(!isVisible);
+        if(isVisible) {
+            setCount(count - 1);
+        } else {
+            setCount(count + 1);
         }
     }
-    const classCard = `card ${isVisible ? 'card-show': ''}`
+
+    const classCard = `card ${isVisible ? 'card-show' : ''}`;
+
     return(
         <div className={classCard} onClick={handleClick}>
-            <img src={props.src} alt={props.alt} />
+            <img src={src} alt={alt} />
         </div>
     )
 }
